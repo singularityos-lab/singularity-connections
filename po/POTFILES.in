@@ -1,0 +1,6 @@
+src/app.vala
+src/window.vala
+src/rdp.vala
+src/rdp-missing.vala
+src/store.vala
+src/search.vala

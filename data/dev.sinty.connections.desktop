@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Connections
+Comment=See and control other computers over VNC and RDP
+Exec=singularity-connections %U
+Icon=dev.sinty.connections
+Terminal=false
+Type=Application
+Categories=Network;RemoteAccess;
+Keywords=remote;desktop;vnc;rdp;screen;control;
+MimeType=x-scheme-handler/vnc;x-scheme-handler/rdp;application/x-rdp;application/x-vnc;
+StartupWMClass=dev.sinty.connections
+Actions=new-connection;
+
+[Desktop Action new-connection]
+Name=New Connection
+Exec=singularity-connections --new-connection

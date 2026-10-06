@@ -1,0 +1,1 @@
+option('rdp', type: 'feature', value: 'auto', description: 'Remote Desktop Protocol support through FreeRDP 3')
