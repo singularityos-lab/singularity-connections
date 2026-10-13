@@ -379,7 +379,8 @@ namespace Singularity.Apps.Connections {
 
             var group = new PreferencesGroup ();
             var addr = new EntryRow (_("Address"));
-            addr.text = initial_address ?? (is_new ? "" : c.address ());
+            if (initial_address != null) addr.text = initial_address;
+            else addr.text = is_new ? "" : c.address ();
             var name = new EntryRow (_("Name"));
             name.text = c.name;
             var user = new EntryRow (_("User Name"));
