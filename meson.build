@@ -31,7 +31,8 @@ sources = files(
   'src/search.vala',
   'src/app.vala',
 )
-deps = [gtk_dep, gee_dep, json_dep, secret_dep, libsingularity_dep]
+m_dep = meson.get_compiler('c').find_library('m', required: false)
+deps = [gtk_dep, gee_dep, json_dep, secret_dep, m_dep, libsingularity_dep]
 vala_args = ['--vapidir=' + meson.current_source_dir() / 'vapi']
 
 link_with = []
