@@ -34,6 +34,7 @@ namespace Singularity.Apps.Connections {
             dock_menu = new Singularity.DockMenu ("dev.sinty.connections");
             dock_menu.activated.connect ((id) => connect_saved (id));
             store.changed.connect (publish_recent);
+            ConnectionsIntents.install (this);
             publish_recent ();
             var provider = new CssProvider ();
             provider.load_from_string (CSS);
@@ -106,7 +107,7 @@ namespace Singularity.Apps.Connections {
             set_accels_for_action ("win.fullscreen", { "F11" });
         }
 
-        private ConnectionsWindow window () {
+        internal ConnectionsWindow window () {
             var w = get_active_window () as ConnectionsWindow;
             if (w == null) w = new ConnectionsWindow (this, store);
             return w;

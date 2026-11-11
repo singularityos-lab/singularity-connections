@@ -29,6 +29,7 @@ sources = files(
   'src/store.vala',
   'src/window.vala',
   'src/search.vala',
+  'src/agent_intents.vala',
   'src/app.vala',
 )
 m_dep = meson.get_compiler('c').find_library('m', required: false)

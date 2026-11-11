@@ -98,6 +98,7 @@ namespace Singularity.Apps.Connections {
         private Button status_back;
         private RemoteSession? session;
         private Connection? current;
+        public string session_error { get; private set; default = ""; }
         private string? pending_password;
         private bool remember_pending;
         private Button add_bubble;
@@ -465,12 +466,21 @@ namespace Singularity.Apps.Connections {
             addr.grab_focus ();
         }
 
+        public Connection? session_connection () {
+            return session != null ? current : null;
+        }
+
+        public bool session_live () {
+            return session != null && session.active;
+        }
+
         public void connect_to (Connection c) {
             if (current != c) {
                 pending_password = null;
                 remember_pending = false;
             }
             if (session != null) end_session ();
+            session_error = "";
             current = c;
             c.last_used = new DateTime.now_utc ().to_unix ();
             store.put (c);
@@ -532,6 +542,7 @@ namespace Singularity.Apps.Connections {
             save_thumbnail (s);
             display.session = null;
             session = null;
+            session_error = err != null ? err.message : "";
             if (err == null) {
                 if (fullscreened) unfullscreen ();
                 show_page (store.items.size == 0 ? "welcome" : "list");
