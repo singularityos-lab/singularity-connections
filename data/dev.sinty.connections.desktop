@@ -6,6 +6,7 @@ Icon=dev.sinty.connections
 Terminal=false
 Type=Application
 Categories=Network;RemoteAccess;
+X-Sinty-FormFactors=desktop;tablet;phone
 Keywords=remote;desktop;vnc;rdp;screen;control;
 MimeType=x-scheme-handler/vnc;x-scheme-handler/rdp;application/x-rdp;application/x-vnc;
 StartupWMClass=dev.sinty.connections
